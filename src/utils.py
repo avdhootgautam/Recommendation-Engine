@@ -21,3 +21,20 @@ def preprocessing_on_a_column_genres(obj):
     for i in json.loads(obj):
         l.append(i["name"])
     return l
+def preprocessing_on_a_column_cast(obj):
+    l=[]
+    count=0
+    for i in json.loads(obj):
+        l.append(i["name"])
+        count+=1
+        if count==3:
+            break
+    return l
+
+def preprocessing_on_a_column_crew(obj):
+    l=[]
+    for i in json.loads(obj):
+        if i["job"]=="Director":
+            l.append(i["name"])
+            break
+    return l
